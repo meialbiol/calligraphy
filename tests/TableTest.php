@@ -92,6 +92,14 @@ class TableTest extends \PHPUnit\Framework\TestCase
         $this->assertEquals(2, $countTdEnds);
     }
 
+    public function test_table_has_data()
+    {
+        $table = new Table(1,1);
+        $table = $table->create('oli')->getTable();
+        $this->assertContains('oli', $table);
+
+    }
+
 
 
 }
