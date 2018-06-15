@@ -19,14 +19,13 @@ class TableTest extends \PHPUnit\Framework\TestCase
 
     }
 
-    /**
-     *
-     */
+
     public function test_have_a_table(){
         $table = new Table();
+        $table = $table->create()->getTable();
 
-        $strStarts = substr($table->create(), 0, 7);
-        $strEnds = substr($table->create(), -8);
+        $strStarts = substr($table, 0, 7);
+        $strEnds = substr($table, -8);
 
         $this->assertEquals('<table>', $strStarts);
         $this->assertEquals('</table>', $strEnds);
@@ -35,12 +34,40 @@ class TableTest extends \PHPUnit\Framework\TestCase
 
     public function test_table_with_a_row()
     {
-        $table = new Table();
-        $countTr = substr_count($table->create(),'<tr>');
-        $countTrEnds = substr_count($table->create(),'</tr>');
+        $table = new Table(1);
+        $table = $table->create()->getTable();
+
+        $countTr = substr_count($table,'<tr>');
+        $countTrEnds = substr_count($table,'</tr>');
 
         $this->assertEquals(1, $countTr);
         $this->assertEquals(1, $countTrEnds);
     }
+
+    public function test_table_with_two_rows()
+    {
+        $table = new Table(2);
+        $table = $table->create()->getTable();
+
+        $countTr = substr_count($table,'<tr>');
+        $countTrEnds = substr_count($table,'</tr>');
+
+        $this->assertEquals(2, $countTr);
+        $this->assertEquals(2, $countTrEnds);
+    }
+
+    public function test_table_with_three_rows()
+    {
+        $table = new Table(3);
+        $table = $table->create()->getTable();
+
+        $countTr = substr_count($table,'<tr>');
+        $countTrEnds = substr_count($table,'</tr>');
+
+        $this->assertEquals(3, $countTr);
+        $this->assertEquals(3, $countTrEnds);
+    }
+
+
 
 }
