@@ -68,6 +68,30 @@ class TableTest extends \PHPUnit\Framework\TestCase
         $this->assertEquals(3, $countTrEnds);
     }
 
+    public function test_table_create_table_with_a_column()
+    {
+        $table = new Table(1,1);
+        $table = $table->create()->getTable();
+
+        $countTd = substr_count($table,'<td>');
+        $countTdEnds = substr_count($table,'</td>');
+
+        $this->assertEquals(1, $countTd);
+        $this->assertEquals(1, $countTdEnds);
+    }
+
+    public function test_table_create_table_with_two_columns()
+    {
+        $table = new Table(1,2);
+        $table = $table->create()->getTable();
+
+        $countTd = substr_count($table,'<td>');
+        $countTdEnds = substr_count($table,'</td>');
+
+        $this->assertEquals(2, $countTd);
+        $this->assertEquals(2, $countTdEnds);
+    }
+
 
 
 }
