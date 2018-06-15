@@ -9,6 +9,6 @@ class Table
 
     public function create()
     {
-        return '<table></table>';
+        return '<table><tr></tr></table>';
     }
 }
