@@ -1,0 +1,22 @@
+{
+  "name": "calligraphy",
+  "minimum-stability": "stable",
+  "require": {
+    "symfony/console": "^3.2",
+    "dompdf/dompdf": "^0.8.2"
+  },
+  "autoload": {
+    "psr-4": {
+      "Calligraphy\\": "src",
+      "Console\\": "console"
+    }
+  },
+  "autoload-dev": {
+    "psr-4": {
+      "Test\\": "tests"
+    }
+  },
+  "require-dev": {
+    "phpunit/phpunit": "^7.2"
+  }
+}
