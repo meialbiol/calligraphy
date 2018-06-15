@@ -23,7 +23,7 @@ class Table
 
     }
 
-    public function create($data='')
+    public function create($data=[''])
     {
 
         $this->createColumns($data);
@@ -34,8 +34,12 @@ class Table
 
     protected function createColumns($data)
     {
-        for ($count = $this->columnNumber; $count > 0; $count--) {
-            $this->columns .= '<td>'.$data.'</td>';
+        for ($count = 0; $count < $this->columnNumber; $count++) {
+            if (!empty($data[$count])){
+                $this->columns .= '<td>'.$data[$count].'</td>';
+            }else{
+                $this->columns .= '<td></td>';
+            }
         }
     }
 
