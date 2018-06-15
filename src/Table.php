@@ -23,19 +23,23 @@ class Table
 
     }
 
-    public function create()
+    public function create($data=[''])
     {
 
-        $this->createColumns();
+        $this->createColumns($data);
         $this->createRows();
         $this->createTable();
         return $this;
     }
 
-    protected function createColumns()
+    protected function createColumns($data)
     {
-        for ($count = $this->columnNumber; $count > 0; $count--) {
-            $this->columns .= '<td></td>';
+        for ($count = 0; $count < $this->columnNumber; $count++) {
+            if (!empty($data[$count])){
+                $this->columns .= '<td>'.$data[$count].'</td>';
+            }else{
+                $this->columns .= '<td></td>';
+            }
         }
     }
 

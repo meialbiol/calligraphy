@@ -92,6 +92,29 @@ class TableTest extends \PHPUnit\Framework\TestCase
         $this->assertEquals(2, $countTdEnds);
     }
 
+    public function test_table_has_data()
+    {
+        $table = new Table(1,1);
+        $table = $table->create(['oli'])->getTable();
+        $countData = substr_count($table,'oli');
+        $this->assertContains('oli', $table);
+        $this->assertEquals(1, $countData);
+
+    }
+
+    public function test_table_different_data_in_columns()
+    {
+        $table = new Table(2,2);
+        $table = $table->create(['oli', 'miau'])->getTable();
+
+        $countTd = substr_count($table,'<td>');
+        $this->assertEquals(4, $countTd);
+
+        $countData = substr_count($table,'oli');
+        $this->assertContains('oli', $table);
+        $this->assertEquals(2, $countData);
+
+    }
 
 
 }
