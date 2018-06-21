@@ -41,7 +41,15 @@ class CreateHtmlDataArrayTest extends \PHPUnit\Framework\TestCase
         $data = $createSData->parse($string, 1, ',');
         $this->assertEquals(2, count($data));
 
+    }
 
+    public function test_crear_associative_array_with_words_and_empty_columns()
+    {
+        $string = 'ab, cd, ef';
+        $createSData = new CreateHtmlDataArray();
+        $data = $createSData->parse($string, 4, ',');
+        $this->assertEquals(3, count($data));
+        $this->assertEquals(4, count($data[0]));
 
     }
 
