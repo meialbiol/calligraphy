@@ -5,6 +5,7 @@ namespace Calligraphy;
 
 class CreateHtmlDataArray
 {
+    protected $data = [];
 
     /**
      * CreateHtmlDataArray constructor.
@@ -13,13 +14,26 @@ class CreateHtmlDataArray
     {
     }
 
+    /**
+     * @param $string
+     * @param int $columns
+     * @return array
+     */
     public function parse($string, $columns=0)
-    {   $data = [];
+    {
         $split = str_split($string);
-        foreach ($split as $index => $splitedValue){
-            $data[] = array_pad([$splitedValue], $columns, '');
-        }
+        $this->fillArray($columns, $split);
+        return $this->data;
+    }
 
-        return $data;
+    /**
+     * @param $columns
+     * @param $split
+     */
+    protected function fillArray($columns, $split)
+    {
+        foreach ($split as $index => $splitedValue) {
+            $this->data[] = array_pad([$splitedValue], $columns, '');
+        }
     }
 }
