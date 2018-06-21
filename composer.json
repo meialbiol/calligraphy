@@ -3,7 +3,8 @@
   "minimum-stability": "stable",
   "require": {
     "symfony/console": "^3.2",
-    "dompdf/dompdf": "^0.8.2"
+    "dompdf/dompdf": "^0.8.2",
+    "mustache/mustache": "^2.12"
   },
   "autoload": {
     "psr-4": {
