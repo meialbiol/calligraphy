@@ -5,7 +5,7 @@ namespace Test;
 
 use Calligraphy\HtmlTable;
 
-class TableTest extends \PHPUnit\Framework\TestCase
+class HtmlTableTest extends \PHPUnit\Framework\TestCase
 {
     public function test_is_true()
     {
