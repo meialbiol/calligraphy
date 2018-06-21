@@ -4,3 +4,4 @@
 - Test 4: Crear un array a partir de un string
 - Test 5: Crear array asociativo valor 0 el caracter del string i X valores vacíos detrás
 - Test 6: Crear array asociativo con palabras
+- Test 7: Crear un documento html con los datos de la tabla rellenados
