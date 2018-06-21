@@ -22,5 +22,16 @@ class CreateHtmlDataArrayTest extends \PHPUnit\Framework\TestCase
 
     }
 
+    public function test_crear_associative_array_0_character_x_empty()
+    {
+        $string = 'ab';
+        $createSData = new CreateHtmlDataArray();
+        $data = $createSData->parse($string, 4);
+        $this->assertEquals(4, count($data[0]));
+        $this->assertEquals('', $data[0][1]);
+
+
+    }
+
 
 }

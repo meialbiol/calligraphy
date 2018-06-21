@@ -2,3 +2,4 @@
 - Test 2: Rellenar tabla con datos
 - Test 3: Rellenar tabla con un array: generar columnas y filas según los datos del array
 - Test 4: Crear un array a partir de un string
+- Test 5: Crear array asociativo valor 0 el caracter del string i X valores vacíos detrás
