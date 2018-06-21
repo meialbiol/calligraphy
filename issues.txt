@@ -1,4 +1,3 @@
-
-
 - Test 1: Crear una tabla html de forma dinámica
 - Test 2: Rellenar tabla con datos
+- Test 3: Rellenar tabla con un array: generar columnas y filas según los datos del array
