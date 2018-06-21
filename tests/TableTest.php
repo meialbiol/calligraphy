@@ -3,7 +3,7 @@
 namespace Test;
 
 
-use Calligraphy\Table;
+use Calligraphy\HtmlTable;
 
 class TableTest extends \PHPUnit\Framework\TestCase
 {
@@ -14,14 +14,14 @@ class TableTest extends \PHPUnit\Framework\TestCase
 
     public function test_instace_of_table()
     {
-        $table =  new Table();
-        $this->assertInstanceOf('Calligraphy\Table', $table);
+        $table =  new HtmlTable();
+        $this->assertInstanceOf('Calligraphy\HtmlTable', $table);
 
     }
 
 
     public function test_have_a_table(){
-        $table = new Table();
+        $table = new HtmlTable();
         $table = $table->create()->getTable();
 
         $strStarts = substr($table, 0, 7);
@@ -34,7 +34,7 @@ class TableTest extends \PHPUnit\Framework\TestCase
 
     public function test_table_with_a_row()
     {
-        $table = new Table(1);
+        $table = new HtmlTable(1);
         $table = $table->create()->getTable();
 
         $countTr = substr_count($table,'<tr>');
@@ -46,7 +46,7 @@ class TableTest extends \PHPUnit\Framework\TestCase
 
     public function test_table_with_two_rows()
     {
-        $table = new Table(2);
+        $table = new HtmlTable(22);
         $table = $table->create()->getTable();
 
         $countTr = substr_count($table,'<tr>');
@@ -56,9 +56,9 @@ class TableTest extends \PHPUnit\Framework\TestCase
         $this->assertEquals(2, $countTrEnds);
     }
 
-    public function test_table_with_three_rows()
+     public function test_table_with_three_rows()
     {
-        $table = new Table(3);
+        $table = new HtmlTable(333);
         $table = $table->create()->getTable();
 
         $countTr = substr_count($table,'<tr>');
@@ -70,7 +70,7 @@ class TableTest extends \PHPUnit\Framework\TestCase
 
     public function test_table_create_table_with_a_column()
     {
-        $table = new Table(1,1);
+        $table = new HtmlTable(1,1);
         $table = $table->create()->getTable();
 
         $countTd = substr_count($table,'<td>');
@@ -82,7 +82,7 @@ class TableTest extends \PHPUnit\Framework\TestCase
 
     public function test_table_create_table_with_two_columns()
     {
-        $table = new Table(1,2);
+        $table = new HtmlTable(1,2);
         $table = $table->create()->getTable();
 
         $countTd = substr_count($table,'<td>');
@@ -94,8 +94,8 @@ class TableTest extends \PHPUnit\Framework\TestCase
 
     public function test_table_has_data()
     {
-        $table = new Table(1,1);
-        $table = $table->create(['oli'])->getTable();
+        $table = new HtmlTable(['oli'],1);
+        $table = $table->create()->getTable();
         $countData = substr_count($table,'oli');
         $this->assertContains('oli', $table);
         $this->assertEquals(1, $countData);
@@ -104,8 +104,8 @@ class TableTest extends \PHPUnit\Framework\TestCase
 
     public function test_table_different_data_in_columns()
     {
-        $table = new Table(2,2);
-        $table = $table->create(['oli', 'miau'])->getTable();
+        $table = new HtmlTable(['oli', 'miau'],2);
+        $table = $table->create()->getTable();
 
         $countTd = substr_count($table,'<td>');
         $this->assertEquals(4, $countTd);
@@ -113,6 +113,20 @@ class TableTest extends \PHPUnit\Framework\TestCase
         $countData = substr_count($table,'oli');
         $this->assertContains('oli', $table);
         $this->assertEquals(2, $countData);
+
+    }
+
+    public function test_table_has_one_row_per_letter()
+    {
+        $table = new HtmlTable('abc');
+        $table = $table->create()->getTable();
+
+        $countTd = substr_count($table,'<tr>');
+        $countTdEnds = substr_count($table,'</tr>');
+
+        $this->assertEquals(3, $countTd);
+        $this->assertEquals(3, $countTdEnds);
+
 
     }
 
