@@ -11,18 +11,13 @@ class HtmlTable
 {
     private $rows = '';
     private $table = '';
-    private $rowNumber;
     private $data;
 
-    public function __construct($data)
+
+    public function create($data)
     {
         $this->data = $data;
-    }
-
-    public function create()
-    {
-        $this->getRowNumber()
-            ->createRows()
+        $this->createRows()
             ->createTable();
         return $this;
     }
@@ -34,7 +29,6 @@ class HtmlTable
         foreach ($data as $index => $value){
             $columns .= '<td>'.$value.'</td>';
         }
-
 
         return $columns;
     }
@@ -65,9 +59,4 @@ class HtmlTable
         return $this->table;
     }
 
-    private function getRowNumber()
-    {
-        $this->rowNumber = count($this->data);
-        return $this;
-    }
 }
