@@ -3,6 +3,7 @@
 namespace Test;
 
 
+use Calligraphy\CreateHtmlDataArray;
 use Calligraphy\HtmlTable;
 
 class HtmlTableTest extends \PHPUnit\Framework\TestCase
@@ -20,17 +21,6 @@ class HtmlTableTest extends \PHPUnit\Framework\TestCase
     }
 
 
-    public function test_have_a_table(){
-        $table = new HtmlTable();
-        $table = $table->create()->getTable();
-
-        $strStarts = substr($table, 0, 7);
-        $strEnds = substr($table, -8);
-
-        $this->assertEquals('<table>', $strStarts);
-        $this->assertEquals('</table>', $strEnds);
-
-    }
 
     public function test_table_with_a_row()
     {
