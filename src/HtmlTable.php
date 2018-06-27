@@ -10,16 +10,13 @@ namespace Calligraphy;
 class HtmlTable
 {
     private $rows = '';
-    private $columns = '';
     private $table = '';
     private $rowNumber;
-    private $columnNumber;
     private $data;
 
-    public function __construct($data = '', $columnNumber = 1)
+    public function __construct($data)
     {
-        $this->data = is_array($data) ? $data : str_split($data);
-        $this->columnNumber = $columnNumber;
+        $this->data = $data;
     }
 
     public function create()
@@ -34,8 +31,8 @@ class HtmlTable
     {
 
         $columns = '';
-        foreach (range(1, $this->columnNumber) as $counter){
-            $columns .= '<td>'.$data.'</td>';
+        foreach ($data as $index => $value){
+            $columns .= '<td>'.$value.'</td>';
         }
 
 

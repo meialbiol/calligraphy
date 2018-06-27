@@ -22,6 +22,7 @@ class CreateHtmlDataArray
      */
     public function parse($string, $columns=0, $explode = false)
     {
+        $this->data = [];
         $split = $this->extractArray($string, $explode);
         $this->fillArray($columns, $split);
         return $this->data;
