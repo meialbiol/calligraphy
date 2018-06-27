@@ -52,6 +52,7 @@ class CreateHtmlDataArrayTest extends \PHPUnit\Framework\TestCase
     {
         $string = 'ab, cd, ef';
         $data = $this->createData->parse($string, 4, ',');
+
         $this->assertEquals(3, count($data));
         $this->assertEquals(4, count($data[0]));
 

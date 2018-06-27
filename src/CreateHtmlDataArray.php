@@ -16,14 +16,15 @@ class CreateHtmlDataArray
 
     /**
      * @param $string
-     * @param int $columns
+     * @param int $emptyColumns
      * @param mixed $explode
      * @return array
      */
-    public function parse($string, $columns=0, $explode = false)
+    public function parse($string, $emptyColumns=0, $explode = false)
     {
+        $this->data = [];
         $split = $this->extractArray($string, $explode);
-        $this->fillArray($columns, $split);
+        $this->fillArray($emptyColumns, $split);
         return $this->data;
     }
 

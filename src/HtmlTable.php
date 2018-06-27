@@ -10,22 +10,14 @@ namespace Calligraphy;
 class HtmlTable
 {
     private $rows = '';
-    private $columns = '';
     private $table = '';
-    private $rowNumber;
-    private $columnNumber;
     private $data;
 
-    public function __construct($data = '', $columnNumber = 1)
-    {
-        $this->data = is_array($data) ? $data : str_split($data);
-        $this->columnNumber = $columnNumber;
-    }
 
-    public function create()
+    public function create($data)
     {
-        $this->getRowNumber()
-            ->createRows()
+        $this->data = $data;
+        $this->createRows()
             ->createTable();
         return $this;
     }
@@ -34,10 +26,9 @@ class HtmlTable
     {
 
         $columns = '';
-        foreach (range(1, $this->columnNumber) as $counter){
-            $columns .= '<td>'.$data.'</td>';
+        foreach ($data as $index => $value){
+            $columns .= '<td>'.$value.'</td>';
         }
-
 
         return $columns;
     }
@@ -68,9 +59,4 @@ class HtmlTable
         return $this->table;
     }
 
-    private function getRowNumber()
-    {
-        $this->rowNumber = count($this->data);
-        return $this;
-    }
 }

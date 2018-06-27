@@ -38,8 +38,8 @@ class CreateHtmlDocTest extends \PHPUnit\Framework\TestCase
 
     public function test_load_html_template_with_table()
     {
-        $table = new HtmlTable('abc');
-        $table = $table->create()->getTable();
+        $table = new HtmlTable();
+        $table = $table->create(array(['abc']))->getTable();
         $data = ['table' => $table];
         $html = $this->html->createDoc($data);
         $this->assertContains('<table', $html);
