@@ -72,6 +72,7 @@ class CreatePdfTableCommand extends Command
 
 
         $dompdf = new Dompdf();
+        $dompdf->setBasePath(__DIR__.'/../assets/');
         $dompdf->loadHtml($html);
         $dompdf->render();
 
