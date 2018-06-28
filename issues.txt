@@ -7,3 +7,4 @@
 - Test 7: Crear un documento html con los datos de la tabla rellenados
 - Test 8: Modificar la creación de tablas para que se genere a partir de los datos que se le pasen en un array
 - Test 9: Crear una tabla con en alfabeto
+- Task 10: Crear comando que genere un html y un pdf
