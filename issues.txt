@@ -9,3 +9,4 @@
 - Test 9: Crear una tabla con en alfabeto
 - Task 10: Crear comando que genere un html y un pdf
 - Task 11: Añadir archivo css en la tabla
+- Task 12: Modificar fuente del pdf
